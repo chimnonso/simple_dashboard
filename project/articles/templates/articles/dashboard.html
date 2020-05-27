@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Dashboard <small>Welcome User</small></h1>
+    <div><a href="{{ url_for('articles.add_article')}}" class="btn btn-success btn-lg">Add Article</a></div>
+    <br>
+    <div>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <!-- <th>Author</th> -->
+                <th>Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for article in articles | sort(reverse=true, attribute='created_on') %}
+            <tr>
+                <td>{{article.id}}</td>
+                <td>{{article.title}}</td>
+                <td>{{article.created_on}}</td>
+                <td><a href="" class="btn btn-default pull-right">Edit</a></td>
+                <td><a href="" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+{% endblock %}
+
+

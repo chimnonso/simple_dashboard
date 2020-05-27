@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{article.title}}</h1>
+    <div>
+        <span class="text-justify">{{article.body | safe}}</span>
+    </div>
+{% endblock %}
